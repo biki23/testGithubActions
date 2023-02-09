@@ -13,7 +13,7 @@ jobs:
       - name: Get changed files
         id: changes
         run: |
-          changed_file==$(git diff --name-only HEAD~1 HEAD)
+          changed_file=$(git diff --name-only HEAD~1 HEAD)
           echo $changed_file
           cat $changed_file
           echo "name=all::$(git diff --name-only HEAD~1 HEAD | xargs)" >> $GITHUB_OUTPUT
