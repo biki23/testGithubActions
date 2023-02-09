@@ -15,6 +15,7 @@ jobs:
         run: |
           changed_file==$(git diff --name-only HEAD~1 HEAD)
           echo $changed_file
+          cat $changed_file
           echo "name=all::$(git diff --name-only HEAD~1 HEAD | xargs)" >> $GITHUB_OUTPUT
           echo "name=ts::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | grep .ts$ | xargs)" >> $GITHUB_OUTPUT
 
