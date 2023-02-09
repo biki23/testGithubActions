@@ -13,7 +13,8 @@ jobs:
       - name: Get changed files
         id: changes
         run: |
-          git diff --name-only HEAD~1 HEAD >> $GITHUB_OUTPUT
+          changed_file==$(git diff --name-only HEAD~1 HEAD)
+          echo $v >> $GITHUB_OUTPUT
           echo "name=all::$(git diff --name-only HEAD~1 HEAD | xargs)" >> $GITHUB_OUTPUT
           echo "name=ts::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | grep .ts$ | xargs)" >> $GITHUB_OUTPUT
 
