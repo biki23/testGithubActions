@@ -13,7 +13,7 @@ jobs:
       - name: Get changed files
         id: changes
         run: |
-          echo "here" >> $GITHUB_OUTPUT
+          echo echo Hello
           echo "name=all::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)" >> $GITHUB_OUTPUT
           echo "name=ts::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | grep .ts$ | xargs)" >> $GITHUB_OUTPUT
 
