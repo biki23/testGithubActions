@@ -25,6 +25,6 @@ jobs:
 
       - name: Get config
         id: getConfig
-        run: jq '.key1' config/testConf.json
+        run: jq --help
 
 
