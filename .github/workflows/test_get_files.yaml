@@ -25,6 +25,12 @@ jobs:
 
       - name: Get config
         id: getConfig
-        run: jq --help
+        run: |
+          v=$(jq -r '.key1' test.json)
+          echo "key1=${{v}}" >> GITHUB_ENV
+      - name: Test passed config
+        id: testPassedConfig
+        run: |
+          echo "${{env.key1}}"
 
 
