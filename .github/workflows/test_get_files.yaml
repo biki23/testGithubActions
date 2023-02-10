@@ -23,7 +23,4 @@ jobs:
           echo Dummy
           ls
 
-      - name: Get config
-        id: getConfig
-
 
