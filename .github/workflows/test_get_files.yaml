@@ -23,7 +23,7 @@ jobs:
           echo Dummy
           ls
           key1Val=$(jq -r '.key1' config/testConf.json)
-          echo "key1=${key1Val}" >> GITHUB_ENV
+          echo "key1=${key1Val}" >> $GITHUB_ENV
           echo "key1=${key1Val}"
       - name: Test passed config
         id: testPassedConfig
