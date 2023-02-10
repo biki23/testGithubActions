@@ -22,7 +22,8 @@ jobs:
           pwd
           echo Dummy
           ls
-          key1Val=$(jq -r '.key1' config/testConf.json)
+          fileName=config/testConf.json
+          key1Val=$(jq -r '.key1' ${fileName})
           echo "key1=${key1Val}" >> $GITHUB_ENV
           echo "key1=${key1Val}"
       - name: Test passed config
