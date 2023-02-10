@@ -22,7 +22,7 @@ jobs:
           pwd
           echo Dummy
           ls
-          v=$(jq -r '.key1' config/testConf.json)
+          key1Val=$(jq -r '.key1' config/testConf.json)
           echo "key1=${{v}}" >> GITHUB_ENV
       - name: Test passed config
         id: testPassedConfig
