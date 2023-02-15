@@ -16,19 +16,13 @@ jobs:
         run: |
           changed_file=$(git diff --name-only HEAD~1 HEAD)
           echo $changed_file
-          cat $changed_file
+          echo ---------------------
           echo "name=all::$(git diff --name-only HEAD~1 HEAD | xargs)" >> $GITHUB_OUTPUT
           echo "name=ts::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | grep .ts$ | xargs)" >> $GITHUB_OUTPUT
           pwd
-          echo Dummy
-          ls
-          fileName=config/testConf.json
-          key1Val=$(jq -r '.key1' ${fileName})
-          echo "key1=${key1Val}" >> $GITHUB_ENV
-          echo "key1=${key1Val}"
-      - name: Test passed config
-        id: testPassedConfig
-        run: |
-          echo "${{env.key1}}"
+          echo ---------------------
+          changed_file1=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }})
+          echo $changed_file1
+
 
 
