@@ -23,7 +23,7 @@ jobs:
           echo ---------------------
           changed_file1=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }})
           echo $changed_file
-          echo "name$(uuid)"
+          echo "name$(uuidgen)"
 
 
 
